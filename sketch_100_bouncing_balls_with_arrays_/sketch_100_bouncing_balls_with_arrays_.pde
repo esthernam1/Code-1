@@ -17,8 +17,6 @@ void setup() {
   size(600, 600);
   for (int i = 0; i<num; i++) {
 
-
-
     xPos [i] = int (random(circleSize[i]/2, width-circleSize[i]/2));
     yPos [i] = int (random(circleSize[i]/2, height-circleSize[i]/2));
 
@@ -29,8 +27,8 @@ void setup() {
     circleSize[i] = int(random(10, 100));
     circleColor[i] = color (random(0, 255), random(0, 255), random(0, 255));
 
-    //opacity[i] = int (random(0, 255));
-    opacity[i] = 255;
+    opacity[i] = int (random(0, 255));
+    //opacity[i] = 255;
   }
 }
 

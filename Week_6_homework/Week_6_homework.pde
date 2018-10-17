@@ -1,12 +1,32 @@
-// (r<.25){
-//index = 0
-//(r>= .25 & r,.50)
-//index = 1
+
+String arrayOne [] = { "SQUARE", "RECTANGLE", "CUBE", "QUADRILATERAL", "FOUR-SIDED THING" };
 
 
-//add collisions to bouncing balls
-//if positions are equal, speeds should reverse
-//if mouse pos is same as ellipse...
+void setup() {
+  background(255);
+  size(500, 300);
+  //rectMode (CENTER);
 
-//final midterm practice should change fill color of 
-//ellipse when your mouse runs over it
+  float r = random(0, 1);     //probability  
+  //console will spit out 1 of 5 names
+  for (int i=0; i<1; i+=r) {
+    if (r>0 && r<0.2) {
+      i=0;
+    }
+    if (r>0.2 && r<0.4) {
+      i=1;
+    }
+    if (r>0.4 && r<0.6) {
+      i=2;
+    }
+    if (r>0.6 && r<0.8) {
+      i=3;
+    }
+    if (r>0.8 && r<1) {
+      i=4;
+    }
+    println (arrayOne[i]);
+  }
+}
+void draw() {
+}
