@@ -17,12 +17,14 @@ void draw(){
   
   pushMatrix(); 
   
-  int r = mouseX-mouseY;
+  
+  //translate rect to 0,0 
+  //int r = mouseX-mouseY;
   translate(x, y);
-  rotate(radians(r)); 
-  rect(width/4, height/4, size, size); 
-  rotate(radians(r));
-  rect(width/3, height/3, size, size);  
+  rotate(radians(45)); 
+  rect(0, 0, size, size); 
+  //rotate(radians(r));
+  //rect(width/3, height/3, size, size);  
 
   popMatrix(); 
 

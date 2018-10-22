@@ -17,12 +17,7 @@ void draw() {
       ellipse(i, j, width/35, height/35);
 
       float d = dist(mouseX, mouseY, i, j); 
-      if (d<=width/50) {
-        circleColor = color(255);
-      } else {
-        circleColor = color(0);
-      }
-      if (d<=height/50) {
+      if (d<(width/35/2) && mousePressed) {
         circleColor = color(255);
       } else {
         circleColor = color(0);
