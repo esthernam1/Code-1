@@ -31,7 +31,8 @@ void draw(){
 int result = multiply(num1, num2); 
 
 
-//string shouldnt have same name as float     
+//string shouldnt have same name as float
+
     String answer = num1 + " x " + num2 + " = " + result; 
     textSize(32);
     text(answer, 0, height*.8);

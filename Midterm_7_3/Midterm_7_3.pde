@@ -16,15 +16,15 @@ void draw(){
 void mousePressed(){
    float r = random(0,1); 
   
-  if(r >0 && r<0.2){
+  if(r<0.25){
     xPos +=10; 
-  }else if(r>0.2 && r<0.4){
+  }else if(r>0){
     xPos -=10; 
-  }else if(r>0.4 && r<0.6){
-    xPos -=10; 
-  }else if(r>0.6 && r<0.8){
-    yPos -=10;
-  }else if(r>0.8 && r<1){
-    yPos -=10;
+  //}else if(r>0.4 && r<0.6){
+  //  xPos -=10; 
+  //}else if(r>0.6 && r<0.8){
+  //  yPos -=10;
+  //}else if(r>0.8 && r<1){
+  //  yPos -=10;
   }
 }
