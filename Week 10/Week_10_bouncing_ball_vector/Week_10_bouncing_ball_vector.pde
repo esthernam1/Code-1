@@ -9,6 +9,7 @@ PVector velocity;    //replacing position.x,y speed
 float r, g, b; 
 int radius; 
 
+
 void setup() {
   size(500, 500);
   background(0); 
@@ -19,6 +20,7 @@ void setup() {
   
   radius = 100;
 }
+
 
 void draw() {
   fill(0, 10); 

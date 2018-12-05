@@ -13,8 +13,8 @@ void setup() {
 
   //daryl = new Plant (int(random(100, 400)));
   //eugene = new Plant (int(random(100, 400)));
+ 
   noStroke();
-  
   for (int i=0; i<garden.length; i++) {
    garden[i] = new Plant(int(random(10, width)),int(random(100, width)));
   }

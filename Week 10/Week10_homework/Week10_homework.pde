@@ -24,13 +24,15 @@ void draw() {
   //}
   for (int i=0; i<cars.size(); i++) {
     Car c = cars.get(i);
-    c.move();
     c.gravity();
     c.display(carColor);
     c.drive();
+    if(c.position.x >= width){
+      cars.remove(i);
+    }
   }
   println(cars.size());
 }
 void mousePressed() {
-  cars.add(new Car(mouseX, mouseY));
+  cars.add(new Car());
 }

@@ -1,6 +1,6 @@
 PVector position;
 float theta = 0;
-int orbitSize = 50;
+int orbitSize = 100;
 int yIncrement = 5;
 
 void setup() {
@@ -16,8 +16,8 @@ void draw() {
   //or theta = frameCount;
 
   //orbit movement
-  //position.x = width/2 + cos(theta)*orbitSize;
-  //position.y = height/2 +sin(theta)*orbitSize;
+  position.x = width/2 + cos(theta)*orbitSize;
+  position.y = height/2 +sin(theta)*orbitSize;
 
   //wave moevement LEFT to RIGHT
   //position.x ++;

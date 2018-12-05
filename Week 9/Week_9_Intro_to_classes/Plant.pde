@@ -11,6 +11,9 @@ class Plant {
     plantHeight = _plantHeight;
   }
 
+
+
+
   void display( int _numLeaves, color _plantColor) {
 
     fill(_plantColor);
@@ -23,6 +26,10 @@ class Plant {
 
     rect(xPos, plantHeight, 10, 500);
   }
+  
+  
+  
+  
   void grow() {
     plantHeight -= 1;
   }

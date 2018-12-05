@@ -1,9 +1,8 @@
-ArrayList<Particle> particles;
+ArrayList<Particle> particles = new ArrayList<Particle>();
 
 
 void setup() {
   size(800, 800);
-  particles = new ArrayList<Particle>();
 }
 
 void draw() {
@@ -22,7 +21,7 @@ void draw() {
       p.position.x<= p.size/2){
       p.sideBounce();
     }
-    if(p.position.y < 0){
+    if(p.position.y < 0){     
       particles.remove(i);
     }
   }

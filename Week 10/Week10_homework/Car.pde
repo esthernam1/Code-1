@@ -6,22 +6,17 @@ class Car {
   PVector position;
   PVector velocity;
   PVector gravity;
-  
+
   PVector carVelocity;
 
 
 
-  Car(float _carX, float _carY) {
-    carX = _carX;
-    carY = _carY;
-
-    position = new PVector (mouseX, mouseY);
-    velocity = new PVector(random(.5, 1),0);
-    gravity = new PVector(random(.5, 1),0);
-    carVelocity = new PVector(random(1, 4),0);
-  }
-  void move() {
-    position.add(velocity);
+  Car() {
+    
+      position = new PVector (mouseX, mouseY);
+    velocity = new PVector(random(.5, .5), 0);
+    gravity = new PVector(random(.5, .5), 0);
+    carVelocity = new PVector(random(.5, 3), 0);
   }
 
   void gravity() {
@@ -30,13 +25,13 @@ class Car {
 
   void display(color _carColor) {
     fill(_carColor);
-    rect(carX, carY, 80, 35);
-    rect(carX, carY-15, 50, 40);
+    rect(position.x, position.y, 80, 35);
+    rect(position.x, position.y-15, 50, 40);
     fill(random(0, 100));
-    ellipse(carX+70, carY+30, 30, 30);
-    ellipse(carX+10, carY+30, 30, 30);
+    ellipse(position.x+70, position.y+30, 30, 30);
+    ellipse(position.x+10, position.y+30, 30, 30);
   }
   void drive() {
-    carX+= carVelocity.x;
+    position.add(velocity);
   }
 }

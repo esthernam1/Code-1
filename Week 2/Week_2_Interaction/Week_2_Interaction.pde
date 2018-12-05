@@ -44,8 +44,9 @@ void draw(){
       ellipse(x, y, size, size); 
   
 }
-
+  }
 }
+
 //only happens one time
 //when detects change in your mouse state(either clicked 
 //or not clicked)
@@ -55,7 +56,7 @@ void keyPressed(){
     if(keyCode == UP){
       size ++; 
 //UP ARROW KEY
-
+    }
 
 
 }
