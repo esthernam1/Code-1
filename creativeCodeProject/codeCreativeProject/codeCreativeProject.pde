@@ -3,11 +3,11 @@ OscP5 oscP5;
 
 int x = 300;
 int y = 0;
-float speed = 1;
+float speed = 2;
 
 ArrayList<Wall> walls = new ArrayList<Wall>();
 
-int now_time = 0;
+int add_time = 0;
 int interval = 3000;
 
 boolean game_over = false;
@@ -28,10 +28,13 @@ PVector[] meshPoints;
 
 float poseScale;
 
+color bgColor = color(80, 130, 240);
+float previousMouthHeight;
+
 void setup() {
   size(800, 600);
   frameRate(30);
-  now_time = millis();
+  add_time = millis();
 
   meshPoints = new PVector[66];
   for (int i = 0; i < meshPoints.length; i++) {
@@ -54,13 +57,15 @@ void setup() {
 }
 
 void draw() {
-  background(0);
+  background(bgColor);
 
   fill(255);
   textSize(50);
   text(score, 50, 90);
 
   stroke(100);
+  
+  //faceosc
   if (found) {
     fill(255);
     for (int i = 0; i < meshPoints.length-1; i++) {
@@ -72,52 +77,47 @@ void draw() {
       }
     }
 
-    if (millis() - now_time > interval )
-    {
-      walls.add(new Wall());
-      now_time = millis();
-      interval = int(random(1000, 2000));
+    if (millis() - add_time > interval ){ //subtracting the time
+      walls.add(new Wall()); //adding a new wall every time 
+      add_time = millis();  
+      interval = int(random(1000, 2000));   //the spacing between the walls
       //println("JUMP!");
     }
     noStroke();
-    fill(255, 255, 0);
-    ellipse(x, y, 30, 30);
+    fill(230, 150, 50);
+    ellipse(x, y, 30, 30); //ball
 
-    if (y+speed < height/2 - 15) 
-    {
+    if (y+speed < height/2 - 15){  //controlling speed
       y += speed;
       speed += 1;
-    } else
-    {
+    } else{
       y = height/2 - 15;
     }
 
 
     stroke(255);
+    strokeWeight(2);
     line(0, height/2, width, height/2);
     //stroke(255);
     //line(0, height/2 - 100, width, height/2 - 100);
 
-    for (int i = 0; i < walls.size(); i++)
-    {
+    for (int i = 0; i < walls.size(); i++){
       Wall myWall = walls.get(i);
       myWall.display();
-      if (game_over == false)
-      {
+      if (game_over == false){
         myWall.move();
       }
-      if (myWall.del == true)
-      {
+      if (myWall.del == true){
         walls.remove(i);
       }
-      if (myWall.xpos < x && myWall.up == false)
-      {
+      if (myWall.xpos < x && myWall.up == false){
         score = score + 1;
         myWall.up = true;
       }
     }
   }
-
+  
+//mkaing ball jump based on eyeBrowHeight
   if (leftEyebrowHeight >= 9) {
     speed = -5;
     if (game_over == true) {
@@ -125,8 +125,23 @@ void draw() {
       score = 0;
     }
   }
-}
 
+//changing bgColor based on mouthHeight
+  if (mouthHeight >= 5 && previousMouthHeight<5) {
+    bgColor = color(random(0, 255),random(0, 255),random(0, 255));
+  }
+  
+  
+  //if(posePosition = ){
+  //   bgColor = map(posePosition, 0, 1000, 0, 255);
+     
+  //   println("pose position\tX: " + posePositionX );
+  //  bgColor = map(posePositionX, 0, 1000, 0, 255);
+  //  println(bgColor);
+  //}
+  previousMouthHeight = mouthHeight;
+  
+}
 public void mouthWidthReceived(float w) {
   // println("mouth Width: " + w);
   mouthWidth = w;
